@@ -19,8 +19,8 @@
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <meta name="googlebot" content="index,follow" />
 
-  <!-- Canonical (update to your production URL) -->
-  <link rel="canonical" href="https://www.loosian.co.ke/" />
+  <!-- Canonical -->
+  <link rel="canonical" href="https://loosiangroceries.vercel.app/" />
 
   <!-- Favicons (in /public) -->
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -40,10 +40,10 @@
     property="og:description"
     content="Fresh, quality, certified produce from Kajiado, Kenya. Daily harvests, cold-chain delivery, and export readiness."
   />
-  <!-- Put a 1200×630 image in /public/og-image.jpg for best sharing previews -->
-  <meta property="og:image" content="/og-image.jpg" />
+  <!-- Put a 1200×630 image in /public/og-image.jpg -->
+  <meta property="og:image" content="https://loosiangroceries.vercel.app/og-image.jpg" />
   <meta property="og:image:alt" content="Loosian Grocers – fresh onions, greens & herbs from Kenya" />
-  <meta property="og:url" content="https://www.loosian.co.ke/" />
+  <meta property="og:url" content="https://loosiangroceries.vercel.app/" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -52,7 +52,7 @@
     name="twitter:description"
     content="Daily-harvested onions, greens & herbs from Kajiado, Kenya. 24-hour delivery and export readiness."
   />
-  <meta name="twitter:image" content="/og-image.jpg" />
+  <meta name="twitter:image" content="https://loosiangroceries.vercel.app/og-image.jpg" />
 
   <!-- Preconnects (safe to keep if you use web fonts) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -63,15 +63,15 @@
   <meta name="apple-mobile-web-app-title" content="Loosian Grocers" />
   <meta name="mobile-web-app-capable" content="yes" />
 
-  <!-- Structured Data: Organization + Local Business -->
+  <!-- Structured Data: Organization -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Loosian Grocers & Exporters",
     "legalName": "Oloosuyian Farm Ltd",
-    "url": "https://www.loosian.co.ke/",
-    "logo": "https://www.loosian.co.ke/favicon-96x96.png",
+    "url": "https://loosiangroceries.vercel.app/",
+    "logo": "https://loosiangroceries.vercel.app/favicon-96x96.png",
     "contactPoint": [{
       "@type": "ContactPoint",
       "telephone": "+254723851228",
@@ -82,12 +82,13 @@
   }
   </script>
 
+  <!-- Structured Data: Local Business / GroceryStore -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "GroceryStore",
     "name": "Loosian Grocers & Exporters",
-    "image": "https://www.loosian.co.ke/og-image.jpg",
+    "image": "https://loosiangroceries.vercel.app/og-image.jpg",
     "telephone": "+254723851228",
     "email": "oloosuyianfarm@gmail.com",
     "address": {
@@ -99,17 +100,16 @@
       "addressCountry": "KE"
     },
     "areaServed": ["Kenya", "European Union", "Middle East"],
-    "url": "https://www.loosian.co.ke/",
+    "url": "https://loosiangroceries.vercel.app/",
     "sameAs": []
   }
   </script>
 
-  <!-- Vite entry (keep this) -->
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <!-- (Removed the Vite favicon line) -->
 </head>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
 </html>
