@@ -14,28 +14,34 @@ export default function Hero() {
       style={{ "--hero-image": `url(${BackgroundImage})` }}
       aria-label="Loosian Grocers — fresh produce from Kajiado"
     >
-      {/* Desktop stamp: top-right of the whole hero */}
+      {/* Desktop stamp */}
       <img
         src={Certification}
         alt="100% Natural — Certified"
         className="hero__stamp hero__stamp--desktop"
         loading="eager"
+        data-aos="fade-left"
+        data-aos-delay="250"
       />
 
       <div className="container hero__inner">
         {/* LEFT COPY */}
-        <div className="hero__copy">
-          <span className="hero__kicker">Fresh • Quality • Certified</span>
+        <div className="hero__copy" data-aos="fade-up" data-aos-delay="0">
+          <span className="hero__kicker" data-aos="fade-down" data-aos-delay="50">
+            Fresh • Quality • Certified
+          </span>
 
-          <h1 className="hero__title">Loosian Grocers &amp; Exporters</h1>
+          <h1 className="hero__title" data-aos="fade-up" data-aos-delay="120">
+            Loosian Grocers &amp; Exporters
+          </h1>
 
-          <p className="hero__subtitle">
+          <p className="hero__subtitle" data-aos="fade-up" data-aos-delay="200">
             Grown in Ildamat, Kajiado by Oloosuyian Farm Ltd. We harvest onions, greens,
             and fresh herbs daily, move them in refrigerated transport, and deliver
             <strong> 98% within 24 hours</strong>.
           </p>
 
-          <div className="hero__ctas">
+          <div className="hero__ctas" data-aos="fade-up" data-aos-delay="280">
             <Link to="/products" className="btn hero__btn">
               View Our Products <FiArrowUpRight />
             </Link>
@@ -45,22 +51,24 @@ export default function Hero() {
           </div>
 
           <ul className="hero__points">
-            <li><FaLeaf /> Red Coach &amp; Neptune onions</li>
-            <li><FiClock /> Daily harvest, 24-hour delivery</li>
-            <li><FaLeaf /> EU &amp; Middle East export ready</li>
+            <li data-aos="fade-up" data-aos-delay="320"><FaLeaf /> Red Coach &amp; Neptune onions</li>
+            <li data-aos="fade-up" data-aos-delay="360"><FiClock /> Daily harvest, 24-hour delivery</li>
+            <li data-aos="fade-up" data-aos-delay="400"><FaLeaf /> EU &amp; Middle East export ready</li>
           </ul>
 
-          {/* Mobile stamp: appears just below the text block */}
+          {/* Mobile stamp */}
           <img
             src={Certification}
             alt="100% Natural — Certified"
             className="hero__stamp--mobile"
             loading="eager"
+            data-aos="zoom-in"
+            data-aos-delay="200"
           />
         </div>
 
-        {/* RIGHT VISUALS (desktop) */}
-        <div className="hero__visual">
+        {/* RIGHT VISUALS */}
+        <div className="hero__visual" >
           <img
             src={Farmer}
             alt="Farmer holding fresh produce"

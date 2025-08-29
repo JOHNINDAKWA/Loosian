@@ -8,12 +8,22 @@ import ImgHerbs  from "../../assets/images/herbs.jpg";
 
 export default function GrowSection() {
   return (
-    <section className="grow" id="products-overview" aria-label="Loosian products overview">
+    <section
+      className="grow"
+      id="products-overview"
+      aria-label="Loosian products overview"
+      data-aos="fade-up"
+      data-aos-anchor-placement="top-bottom"
+    >
       <div className="container">
 
         {/* HEADER: left copy + right stats (same row) */}
         <div className="grow__head">
-          <div className="grow__intro">
+          <div
+            className="grow__intro"
+            data-aos="fade-right"
+            data-aos-delay="0"
+          >
             <span className="eyebrow">What We Grow</span>
             <h2 className="h2">Currently We’re Growing and Supplying Premium Produce</h2>
             <p className="muted">
@@ -22,8 +32,14 @@ export default function GrowSection() {
             </p>
           </div>
 
-          <div className="grow__stats" role="group" aria-label="Loosian statistics">
-            <div className="stat">
+          <div
+            className="grow__stats"
+            role="group"
+            aria-label="Loosian statistics"
+            data-aos="fade-left"
+            data-aos-delay="80"
+          >
+            <div className="stat" data-aos="zoom-in" data-aos-delay="120">
               <span className="stat__icon" aria-hidden><FiClock /></span>
               <div className="stat__text">
                 <strong>98%</strong>
@@ -31,7 +47,7 @@ export default function GrowSection() {
               </div>
             </div>
 
-            <div className="stat">
+            <div className="stat" data-aos="zoom-in" data-aos-delay="220">
               <span className="stat__icon" aria-hidden><FiGlobe /></span>
               <div className="stat__text">
                 <strong>30%</strong>
@@ -39,7 +55,7 @@ export default function GrowSection() {
               </div>
             </div>
 
-            {/* <div className="stat">
+            {/* <div className="stat" data-aos="zoom-in" data-aos-delay="320">
               <span className="stat__icon" aria-hidden><FiTrendingUp /></span>
               <div className="stat__text">
                 <strong>34+</strong>
@@ -62,6 +78,7 @@ export default function GrowSection() {
             img={ImgOnions}
             alt="Red onions packed for delivery"
             to="/products#onions"
+            aos={{ type: "zoom-in-up", delay: 0 }}
           />
 
           <ArticleCard
@@ -74,6 +91,7 @@ export default function GrowSection() {
             img={ImgGreens}
             alt="Fresh leafy greens assortment"
             to="/products#greens"
+            aos={{ type: "zoom-in-up", delay: 120 }}
           />
 
           <ArticleCard
@@ -87,6 +105,7 @@ export default function GrowSection() {
             img={ImgHerbs}
             alt="Fresh herbs on a sorting table"
             to="/products#herbs"
+            aos={{ type: "zoom-in-up", delay: 240 }}
           />
         </div>
       </div>
@@ -95,10 +114,16 @@ export default function GrowSection() {
 }
 
 /* --------- Card component --------- */
-function ArticleCard({ title1, title2, tag, copy, img, alt, to }) {
+function ArticleCard({ title1, title2, tag, copy, img, alt, to, aos = {} }) {
+  const { type = "fade-up", delay = 0 } = aos;
   return (
-    <article className="growCard">
-      <header className="growCard__head">
+    <article
+      className="growCard"
+      data-aos={type}
+      data-aos-delay={delay}
+      data-aos-anchor-placement="top-bottom"
+    >
+      <header className="growCard__head" data-aos="fade-up" data-aos-delay={delay + 60}>
         <h3 className="growCard__title">
           <span>{title1}</span> <span>{title2}</span>
         </h3>
@@ -111,12 +136,12 @@ function ArticleCard({ title1, title2, tag, copy, img, alt, to }) {
         </p>
       </header>
 
-      <figure className="growCard__media">
+      <figure className="growCard__media" data-aos="zoom-in" data-aos-delay={delay + 120}>
         <span className="chip">{tag}</span>
         <img src={img} alt={alt} loading="lazy" />
       </figure>
 
-      <footer className="growCard__foot">
+      <footer className="growCard__foot" data-aos="fade-up" data-aos-delay={delay + 180}>
         <Link className="ghost" to={to}>
           Learn more <FiArrowUpRight />
         </Link>

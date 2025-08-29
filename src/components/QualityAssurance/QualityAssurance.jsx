@@ -34,7 +34,7 @@ export default function QualityAssurance() {
       <div className="qa__bg" aria-hidden="true" />
 
       <div className="container">
-        <div className="qa__panel">
+        <div className="qa__panel" data-aos="fade-up" data-aos-delay="100">
           <span className="qa__eyebrow">Why Choose Us</span>
           <h2 className="qa__title">Quality Assurance: From Farm to Market</h2>
 

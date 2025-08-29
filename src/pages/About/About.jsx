@@ -184,7 +184,7 @@ export default function About() {
 
           <div className="lgabout-ctaActions">
             <Link to="/contact" className="lgabout-btn">
-              Contact Us <FiArrowUpRight />
+              Contact  <FiArrowUpRight />
             </Link>
             <Link to="/products" className="lgabout-ghost">
               Browse Products <FiArrowUpRight />
