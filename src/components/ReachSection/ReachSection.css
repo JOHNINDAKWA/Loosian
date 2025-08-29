@@ -1,0 +1,159 @@
+/* ================================
+   Loosian – Reach Section
+   (namespaced: lgreach-*)
+   ================================ */
+
+.lgreach {
+  position: relative;
+  isolation: isolate;
+  padding: clamp(56px, 8vw, 110px) 0;
+  border-top: 1px solid var(--border);
+
+  /* Simple + calm: gentle vertical wash with two faint corner blooms */
+  background:
+    radial-gradient(900px 500px at 0% -10%,
+      color-mix(in srgb, var(--brand-300) 10%, transparent) 0%, transparent 60%),
+    radial-gradient(900px 500px at 100% 110%,
+      color-mix(in srgb, var(--brand-700) 8%, transparent) 0%, transparent 60%),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface) 96%, var(--brand-300) 4%) 0%,
+      color-mix(in srgb, var(--surface) 90%, var(--brand-300) 10%) 100%
+    );
+}
+
+:root[data-theme="dark"] .lgreach {
+  background:
+    radial-gradient(900px 500px at 0% -10%,
+      color-mix(in srgb, var(--brand-600) 16%, transparent) 0%, transparent 60%),
+    radial-gradient(900px 500px at 100% 110%,
+      color-mix(in srgb, var(--brand-700) 16%, transparent) 0%, transparent 60%),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg) 92%,  var(--brand-700) 8%) 0%,
+      color-mix(in srgb, var(--surface) 84%, var(--brand-700) 16%) 100%
+    );
+}
+
+
+.lgreach-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: clamp(20px, 4vw, 52px);
+  align-items: center;
+}
+
+/* ---- Left ---- */
+.lgreach-left { color: var(--text); }
+.lgreach-title {
+  margin: 0 0 clamp(12px, 2vw, 18px);
+  font-size: clamp(1.6rem, 4vw, 3rem);
+  font-weight: 900;
+  line-height: 1.06;
+  color: color-mix(in srgb, var(--text) 96%, var(--brand-700) 4%);
+}
+
+.lgreach-steps {
+  list-style: none;
+  padding: 0; margin: clamp(10px, 2vw, 16px) 0 0;
+  display: grid; gap: clamp(16px, 2.2vw, 20px);
+}
+
+.lgreach-step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(14px, 2.2vw, 18px);
+  align-items: start;
+}
+
+/* ribbon badge (SVG path from user) */
+.lgreach-ribbon {
+  position: relative;
+  width: clamp(64px, 8vw, 92px);
+  aspect-ratio: 90 / 132.6;
+  filter: drop-shadow(0 10px 24px rgba(0,0,0,.25));
+}
+.lgreach-ribbonSvg {
+  width: 100%; height: 100%; display: block;
+}
+.lgreach-ribbonSvg path {
+  fill: color-mix(in srgb, var(--brand-700) 80%, #000 0%);
+  stroke: color-mix(in srgb, var(--brand-900) 50%, #000 0%);
+  stroke-width: 1.5;
+}
+:root[data-theme="dark"] .lgreach-ribbonSvg path {
+  fill: color-mix(in srgb, var(--brand-700) 70%, #000 0%);
+  stroke: color-mix(in srgb, var(--brand-900) 40%, #000 0%);
+}
+
+.lgreach-ribbonNum {
+  position: absolute;
+  inset: 0;
+  display: grid; place-items: center;
+  color: #fff;
+  font-weight: 900;
+  font-size: clamp(1rem, 2.6vw, 1.6rem);
+}
+
+/* step copy */
+.lgreach-stepCopy h3 {
+  margin: 0 0 .25rem;
+  font-weight: 800;
+  font-size: clamp(1.02rem, 2.2vw, 1.32rem);
+  color: color-mix(in srgb, var(--text) 96%, var(--brand-700) 4%);
+}
+.lgreach-stepCopy p { margin: 0; opacity: .9; }
+
+/* ---- Right ---- */
+.lgreach-visual {
+  position: relative;
+  margin: 0;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #0f1513;
+  outline: 1px solid color-mix(in srgb, var(--brand-700) 22%, transparent);
+  box-shadow: 0 24px 56px rgba(0,0,0,.22);
+}
+.lgreach-visual img {
+  width: 100%;
+  height: clamp(320px, 52vw, 560px);
+  object-fit: cover;
+  object-position: 50% 40%;
+  display: block;
+  filter: saturate(1.02) contrast(1.02);
+}
+
+/* gentle left fade so copy remains readable */
+.lgreach-visual::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--bg) 96%, #000 4%) 0%,
+    color-mix(in srgb, var(--bg) 80%, #000 20%) 16%,
+    transparent 38%
+  );
+  pointer-events: none;
+}
+:root[data-theme="dark"] .lgreach-visual::before {
+  background: linear-gradient(90deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.42) 16%, transparent 38%);
+}
+
+/* ---- a11y helper ---- */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 980px) {
+  .lgreach-grid { grid-template-columns: 1fr; }
+  .lgreach-visual { order: -1; }              /* map first on mobile */
+  .lgreach-title { text-align: left; }
+  .lgreach-visual img { height: clamp(280px, 58vw, 460px); }
+  .lgreach-visual::before {
+    background: linear-gradient(180deg, rgba(0,0,0,.42) 0%, transparent 42%);
+  }
+}

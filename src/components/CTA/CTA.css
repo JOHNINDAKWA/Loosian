@@ -1,0 +1,216 @@
+/* ===== Section background: tasteful gradient + soft corner blooms ===== */
+.lgcta-wrap {
+  position: relative;
+  padding: clamp(40px, 6vw, 78px) 0; /* slightly taller band */
+  background:
+    radial-gradient(820px 420px at 8% -12%,
+      color-mix(in srgb, var(--brand-300) 22%, transparent) 0%, transparent 60%),
+    radial-gradient(980px 520px at 102% 110%,
+      color-mix(in srgb, var(--brand-700) 12%, transparent) 0%, transparent 62%),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface) 94%, var(--brand-300) 6%) 0%,
+      color-mix(in srgb, var(--surface) 88%, var(--brand-300) 12%) 100%
+    );
+}
+:root[data-theme="dark"] .lgcta-wrap {
+  background:
+    radial-gradient(820px 460px at 8% -10%,
+      color-mix(in srgb, var(--brand-600) 18%, transparent) 0%, transparent 60%),
+    radial-gradient(1000px 560px at 102% 110%,
+      color-mix(in srgb, var(--brand-700) 18%, transparent) 0%, transparent 64%),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg) 90%,  var(--brand-700) 10%) 0%,
+      color-mix(in srgb, var(--surface) 84%, var(--brand-700) 16%) 100%
+    );
+}
+
+/* ===== CTA card ===== */
+.lgcta-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(14px, 3vw, 32px);
+
+  min-height: clamp(260px, 30vh, 340px);      /* bigger height */
+  padding: clamp(20px, 3vw, 28px) clamp(18px, 3vw, 28px);
+  border-radius: 45px;
+  overflow: hidden;
+
+  background-image:
+    linear-gradient(0deg, rgba(10, 36, 24, .45), rgba(10, 36, 24, .45)), /* lighter overlay */
+    var(--lgcta-image);
+  background-size: cover;
+  background-position: 50% 50%;
+  box-shadow: 0 18px 48px rgba(0,0,0,.18);
+  border: 1px solid color-mix(in srgb, var(--brand-700) 16%, transparent);
+}
+:root[data-theme="dark"] .lgcta-card {
+  background-image:
+    linear-gradient(0deg, rgba(6, 18, 14, .55), rgba(6, 18, 14, .55)),
+    var(--lgcta-image);
+}
+
+/* soft inner vignette */
+.lgcta-card::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(1200px 280px at 30% 40%, rgba(255,255,255,.06), transparent 60%);
+  pointer-events: none;
+}
+
+/* ===== Left cluster ===== */
+.lgcta-left {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 2vw, 18px);
+  min-width: 0;
+  flex: 1 1 560px; /* lets text grow nicely on larger screens */
+}
+
+.lgcta-badge {
+  width: clamp(62px, 7vw, 86px);
+  height: clamp(62px, 7vw, 86px);
+  display: grid; place-items: center;
+  border-radius: 999px;
+  color: var(--brand-700);
+
+  flex: 0 0 auto;
+}
+.lgcta-badge img { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+.lgcta-copy { color: #fff; min-width: 0; }
+.lgcta-eyebrow {
+  display: inline-flex; align-items: center; gap: .45rem;
+  font-weight: 800; letter-spacing: .25px;
+  padding: .35rem .6rem; border-radius: 999px;
+  background: rgba(255,255,255,.16);
+  border: 1px solid rgba(255,255,255,.26);
+  margin-bottom: .35rem;
+}
+.lgcta-title {
+  margin: 0;
+  font-weight: 800;
+  line-height: 1.08;
+  font-size: clamp(1.15rem, 3vw, 2.1rem);
+}
+.lgcta-sub {
+  margin: .35rem 0 0;
+  color: rgba(255,255,255,.92);
+  font-size: clamp(.95rem, 1.2vw, 1.02rem);
+}
+
+/* ===== Actions ===== */
+.lgcta-actions {
+  display: flex; align-items: center; gap: 10px;
+  flex: 0 0 auto;
+}
+.lgcta-btn {
+  display: inline-flex; align-items: center; gap: .55rem;
+  padding: .95rem 1.35rem;
+  border-radius: 999px;
+  background: var(--accent-500);
+  color: #2b2b1a;
+  font-weight: 900;
+  border: 1px solid color-mix(in srgb, var(--accent-500) 88%, #000 0%);
+  transition: transform .18s ease, filter .18s ease;
+  white-space: nowrap;
+}
+.lgcta-btn:hover { transform: translateY(-1px); filter: brightness(1.02); }
+
+/* ===========================================
+   SMALL SCREENS ONLY (keeps desktop as-is)
+   =========================================== */
+@media (max-width: 680px) {
+  /* Card: column layout + darker overlay for readability */
+  .lgcta-card {
+    flex-direction: column;               /* row -> column */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    min-height: 68vh;
+    padding: 18px 14px;
+    border-radius: 28px;
+
+    /* stronger darkness on phones */
+    background-image:
+      linear-gradient(0deg, rgba(10, 36, 24, .80), rgba(10, 36, 24, .80)),
+      var(--lgcta-image);
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+  :root[data-theme="dark"] .lgcta-card {
+    background-image:
+      linear-gradient(0deg, rgba(6, 18, 14, .80), rgba(6, 18, 14, .80)),
+      var(--lgcta-image);
+  }
+
+  /* Left cluster (icon + text) stacks */
+  .lgcta-left {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+      flex: 0; /* lets text grow nicely on larger screens */
+  }
+
+  /* Icon up top */
+  .lgcta-badge {
+    width: 128px;
+    height: 128px;
+    margin: 0;            /* center */
+  }
+  .lgcta-badge img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* Words in the middle */
+  .lgcta-copy {
+    max-width: 30ch;
+    color: #fff;
+  }
+  /* Optional: avoid forced line break if you use <br class="lgcta-br" /> */
+  .lgcta-br { display: none; }
+
+  .lgcta-eyebrow {
+    font-size: .85rem;
+    padding: .34rem .6rem;
+    background: rgba(255,255,255,.22);
+    border-color: rgba(255,255,255,.28);
+  }
+  .lgcta-title {
+    margin: .35rem 0 .1rem;
+    font-size: clamp(1.02rem, 5.2vw, 1.32rem);
+    line-height: 1.22;
+    font-weight: 800;
+  }
+  .lgcta-sub {
+    margin-top: 6px;
+    font-size: .95rem;
+  }
+
+  /* Button at the bottom */
+  .lgcta-actions {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .lgcta-btn {
+    width: min(100%, 340px);           /* nice tap target */
+    justify-content: center;
+    padding: .95rem 1.2rem;
+  }
+}
+
+/* Tiny phones tweaks (optional) */
+@media (max-width: 380px) {
+  .lgcta-card { min-height: 64vh; }
+  .lgcta-title { font-size: 1rem; }
+  .lgcta-sub   { font-size: .9rem; }
+}

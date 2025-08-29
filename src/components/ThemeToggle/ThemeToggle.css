@@ -1,0 +1,9 @@
+.toggle {
+  width: 40px; height: 40px;
+  display: grid; place-items: center;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--brand-700);
+  cursor: pointer;
+}

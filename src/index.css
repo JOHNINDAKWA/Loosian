@@ -1,0 +1,137 @@
+/* ------------------------------
+   Loosian Grocers – Global Styles
+   Inspired by logo greens + a warm produce accent
+   ------------------------------ */
+
+:root {
+  /* brand palette (light) */
+  --brand-900: #0b3d2e;
+  --brand-800: #0f4f3a;
+  --brand-700: #146a4b;   /* primary */
+  --brand-600: #187a57;
+  --brand-500: #1f8a5c;   /* secondary */
+  --brand-300: #8ccf7a;   /* leaf */
+  --accent-500: #caa443;  /* warm amber */
+
+  /* neutrals (light) */
+  --bg: #ffffff;
+  --surface: #f6faf8;
+  --text: #0e1512;
+  --muted: #5f6d64;
+  --border: #e6efea;
+
+  /* UI tokens */
+  --radius: 16px;
+  --shadow: 0 6px 24px rgba(0,0,0,.08);
+
+  /* gradients (light) – optional use */
+  --bg-gradient: linear-gradient(180deg, #ffffff 0%, #f6faf8 100%);
+  --surface-gradient: linear-gradient(180deg, rgba(20,106,75,.03), rgba(20,106,75,.00));
+}
+
+/* ===== Dark theme (lighter + lively gradient) ===== */
+:root[data-theme="dark"] {
+  /* neutrals (dark) – lighter & greener */
+  --bg: #121a16;            /* green-charcoal, lighter than before */
+  --surface: #17261f;       /* card / surfaces */
+  --text: #eaf7f0;
+  --muted: #b8c9c2;
+  --border: #2a4238;
+
+  /* keep brand hues but nudge brighter for dark */
+  --brand-900: #d6efe4;
+  --brand-800: #b4ead2;
+  --brand-700: #86dbb6;
+  --brand-600: #63caa0;
+  --brand-500: #45b38e;
+  --brand-300: #9be7a4;
+  --accent-500: #e9c465;
+
+  /* new: background gradients for dark */
+  --bg-gradient:
+    radial-gradient(1200px 600px at 15% -10%, rgba(39, 96, 72, .42), transparent 40%),
+    radial-gradient(900px 520px at 100% 0%, rgba(23, 77, 57, .42), transparent 38%),
+    linear-gradient(180deg, #121a16 0%, #0f1814 100%);
+  --surface-gradient: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+}
+
+
+/* reset + base */
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* default (light) */
+body { background: var(--bg-gradient, var(--bg)); color: var(--text); }
+
+/* dark: swap to gradient */
+:root[data-theme="dark"] body {
+  background: var(--bg-gradient);
+}
+
+/* optional: make cards/shells feel less flat in dark */
+.card, .header-shell, .about, .drawer {
+  background-image: var(--surface-gradient);
+  background-color: var(--surface);
+}
+
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+.container {
+  width: min(1200px, 92vw);
+  margin-inline: auto;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.btn {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.9rem 1.2rem;
+  background: var(--brand-700);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .06s ease, opacity .2s ease;
+}
+.btn:hover { transform: translateY(-1px); opacity: .95; }
+.btn.outline {
+  background: transparent;
+  color: var(--brand-700);
+  border: 1px solid var(--brand-700);
+}
+
+.badge {
+  display: inline-block;
+  padding: .25rem .6rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--brand-300) 30%, transparent);
+  border: 1px solid var(--border);
+  font-size: .8rem;
+}
+
+.grid { display: grid; gap: 1.2rem; }
+.grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+.grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+@media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } }
+@media (max-width: 720px) { .grid-2 { grid-template-columns: 1fr; } }
+
+/* utility spacing */
+.section { padding: 64px 0; }
+.h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; margin: 0 0 .5rem; }
+.h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); margin: 0 0 .25rem; }
+.subtle { color: var(--muted); }

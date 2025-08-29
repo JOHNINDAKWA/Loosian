@@ -1,0 +1,195 @@
+/* ================================
+   Loosian – Sustainability Showcase
+   (namespaced: lgsus-*)
+   ================================ */
+
+.lgsus {
+  position: relative;
+  isolation: isolate;
+  padding: clamp(48px, 8vw, 96px) 0;
+  /* soft brand gradient with corner blooms */
+  background:
+    radial-gradient(900px 520px at -10% 0%,
+      color-mix(in srgb, var(--brand-300) 22%, transparent) 0%, transparent 60%),
+    radial-gradient(900px 520px at 110% 100%,
+      color-mix(in srgb, var(--brand-700) 14%, transparent) 0%, transparent 64%),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface) 96%, var(--brand-300) 4%) 0%,
+      color-mix(in srgb, var(--surface) 90%, var(--brand-300) 10%) 100%
+    );
+}
+
+:root[data-theme="dark"] .lgsus {
+  background:
+    radial-gradient(900px 520px at -10% 0%,
+      color-mix(in srgb, var(--brand-600) 18%, transparent) 0%, transparent 60%),
+    radial-gradient(900px 520px at 110% 100%,
+      color-mix(in srgb, var(--brand-700) 18%, transparent) 0%, transparent 64%),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg) 92%,  var(--brand-700) 8%) 0%,
+      color-mix(in srgb, var(--surface) 84%, var(--brand-700) 16%) 100%
+    );
+}
+
+.lgsus__grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: clamp(18px, 4vw, 48px);
+  align-items: center;
+}
+
+/* ---- image side ---- */
+.lgsus__media {
+  position: relative;
+  margin: 0;
+  border-radius: 28px;
+  overflow: hidden;
+  outline: 1px solid color-mix(in srgb, var(--brand-700) 18%, transparent);
+  box-shadow: 0 24px 48px rgba(0,0,0,.14);
+  background: #0f1513;
+}
+.lgsus__media img {
+  width: 100%;
+  height: clamp(360px, 48vw, 560px);
+  object-fit: cover;
+  object-position: 50% 35%;
+  display: block;
+  filter: saturate(1.02) contrast(1.02);
+}
+
+/* floating badges */
+.lgsus__badges {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.lgsus__badge {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  display: grid;
+  place-items: center;
+  gap: 2px;
+  width: 78px; height: 78px;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--brand-700);
+  border: 6px solid color-mix(in srgb, var(--brand-300) 36%, #fff 64%);
+  box-shadow: 0 16px 40px rgba(0,0,0,.28);
+}
+.lgsus__badge svg { font-size: 1.05rem; opacity: .9; }
+.lgsus__badge b { font-size: 1.02rem; }
+.lgsus__badge span { font-size: .68rem; opacity: .8; }
+
+/* second badge */
+.lgsus__badge:nth-child(2) {
+  left: auto; right: 14px; bottom: auto; top: 14px;
+}
+
+/* ---- copy side ---- */
+.lgsus__copy { color: var(--text); }
+
+.lgsus__kicker {
+  display: inline-flex; align-items: center;
+  gap: .45rem;
+  padding: .35rem .65rem;
+  border-radius: 999px;
+  font-weight: 800;
+  letter-spacing: .25px;
+  background: color-mix(in srgb, var(--brand-300) 14%, transparent);
+  color: color-mix(in srgb, var(--brand-900) 92%, #000 0%);
+  border: 1px solid color-mix(in srgb, var(--brand-300) 26%, transparent);
+}
+.lgsus__title {
+  margin: .6rem 0 1rem;
+  font-weight: 900;
+  line-height: 1.05;
+  font-size: clamp(1.35rem, 3.8vw, 2.4rem);
+}
+
+.lgsus__list {
+  list-style: none;
+  padding: 0; margin: 0 0 1.2rem;
+  display: grid; gap: .85rem;
+}
+.lgsus__list li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: .75rem;
+  align-items: start;
+  padding: .8rem;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--surface) 88%, #fff 12%);
+  border: 1px solid var(--border);
+}
+.lgsus__list h3 { margin: 0 0 .2rem; font-weight: 800; }
+.lgsus__icon {
+  width: 40px; height: 40px; display: grid; place-items: center;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--brand-300) 20%, transparent);
+  color: var(--brand-700);
+  border: 1px solid color-mix(in srgb, var(--brand-300) 30%, transparent);
+}
+
+/* goal card */
+.lgsus__goal {
+  margin: 1rem 0 1.2rem;
+  padding: .9rem;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--surface) 92%, #fff 8%);
+  border: 1px solid var(--border);
+}
+.lgsus__goalHead {
+  display: grid; grid-template-columns: auto 1fr; gap: .7rem;
+  align-items: center;
+}
+.lgsus__goalHead h4 { margin: 0 0 .1rem; font-weight: 900; }
+.lgsus__goalHead p { margin: 0; opacity: .9; }
+.lgsus__goalIcon {
+  width: 42px; height: 42px; display: grid; place-items: center;
+  border-radius: 12px; color: #fff; background: var(--brand-700);
+  border: 1px solid color-mix(in srgb, var(--brand-700) 80%, #000 0%);
+}
+
+/* progress bar */
+.lgsus__bar {
+  position: relative;
+  height: 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--brand-300) 24%, transparent);
+  margin: .7rem 0 .4rem;
+  overflow: hidden;
+}
+.lgsus__bar span {
+  position: absolute; inset: 0;
+  width: var(--p, 0%);
+  background: linear-gradient(90deg, var(--brand-700), var(--brand-500));
+  border-radius: inherit;
+  transition: width .6s ease;
+}
+.lgsus__barLegend {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: .92rem; opacity: .9;
+}
+
+/* CTA */
+.lgsus__cta {
+  display: inline-flex; align-items: center; gap: .55rem;
+  padding: .85rem 1.1rem;
+  border-radius: 999px;
+  background: var(--brand-700);
+  color: #fff; text-decoration: none; font-weight: 900;
+  border: 1px solid color-mix(in srgb, var(--brand-700) 85%, #000 0%);
+  transition: transform .18s ease, filter .18s ease;
+}
+.lgsus__cta:hover { transform: translateY(-1px); filter: brightness(1.02); }
+
+/* ---- responsive ---- */
+@media (max-width: 980px) {
+  .lgsus__grid { grid-template-columns: 1fr; }
+  .lgsus__media img { height: clamp(320px, 56vw, 480px); }
+  .lgsus__media { order: -1; } /* image first on mobile */
+  .lgsus__title { margin-top: .4rem; }
+}

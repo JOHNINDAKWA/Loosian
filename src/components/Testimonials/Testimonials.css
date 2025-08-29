@@ -1,0 +1,198 @@
+/* ==========================
+   Loosian Testimonials (lgtst-*)
+   ========================== */
+
+/* The background gradients have been removed to match the simplicity of the design. */
+.lgtst {
+  padding: clamp(60px, 9vw, 140px) 0;
+}
+
+/* External nav buttons */
+.lgtst-wrap {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.lgtst-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 30;
+  width: 50px;
+  height: 50px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  color: #333;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+.lgtst-prev {
+  left: clamp(-2px, 2vw, 12px);
+}
+.lgtst-next {
+  right: clamp(-2px, 2vw, 12px);
+}
+.lgtst-nav:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* -------- Card -------- */
+.lgtst-card {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* Space between image and text */
+  padding: 50px;
+  background-color: #d8f1a4; /* The light green color from the image */
+  border-radius: 40px;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Decorative circle on the card */
+.card-decoration-circle {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+}
+
+/* -------- Photo side -------- */
+.lgtst-photo {
+  flex-shrink: 0;
+  position: relative; /* Needed for the mask to work properly */
+  height: 240px; /* Explicit height is needed for the mask to work as expected */
+  width: 280px; /* Explicit width to match the background */
+}
+
+.lgtst-image-bg {
+  width: 100%;
+  height: 100%;
+  background-color: #d8f1a4; /* The yellow-green circle background */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lgtst-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  
+  /* Applying the mask for a unique shape */
+  -webkit-mask-image: url("../../assets/images/design.svg");
+  mask-image: url("../../assets/images/design.svg");
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-position: center center;
+  mask-position: center center;
+}
+
+/* -------- Quote side -------- */
+.lgtst-quote {
+  flex-grow: 1;
+}
+
+.lgtst-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 800;
+  letter-spacing: 0.25px;
+  color: #55781d;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.lgtst-text {
+  margin: 0;
+  font-size: clamp(1.2rem, 2.5vw, 2.2rem);
+  line-height: 1.3;
+  font-weight: 700;
+  color: #333;
+}
+
+.lgtst-person {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.lgtst-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+.lgtst-person strong {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.lgtst-person p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* Quote icon */
+.quote-icon {
+  position: absolute;
+  bottom: 25px;
+  right: 100px;
+  width: 60px;
+  height: 60px;
+  border: 2px solid #55781d;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+  font-weight: bold;
+  color: #55781d;
+}
+
+/* -------- Responsive -------- */
+@media (max-width: 980px) {
+  .lgtst-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+  }
+  
+  .lgtst-photo {
+    margin-bottom: 20px;
+  }
+  
+  .lgtst-quote {
+    text-align: center;
+  }
+
+  .lgtst-person {
+    justify-content: center;
+  }
+
+  .lgtst-nav {
+    display: none;
+  }
+  
+  .quote-icon {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 2em;
+  }
+}

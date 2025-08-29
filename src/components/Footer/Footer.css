@@ -1,0 +1,133 @@
+/* ========= Loosian Footer (namespaced lgfoot-*) ========= */
+
+.lgfoot {
+  position: relative;
+  color: #eaf5ef;
+  isolation: isolate;
+  --overlay-light: rgba(7, 32, 21, .86);
+  --overlay-dark: rgba(5, 20, 14, .90);
+
+  background-image:
+    linear-gradient(180deg, var(--overlay-light), var(--overlay-dark)),
+    var(--foot-image);
+  background-size: cover;
+  background-position: 50% 45%;
+}
+
+:root[data-theme="dark"] .lgfoot {
+  --overlay-light: rgba(6, 18, 14, .90);
+  --overlay-dark: rgba(3, 12, 8, .94);
+}
+
+/* ---- feature strip ---- */
+.lgfoot-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(10px, 2vw, 18px);
+  padding: clamp(18px, 3vw, 28px) 0;
+}
+
+.lgfoot-chip {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: .6rem;
+  padding: .9rem 1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.06);
+  background: rgba(255,255,255,.05);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: #f1fff8;
+  font-weight: 800;
+}
+.lgfoot-chip svg { font-size: 2.5rem; opacity: .95; font-weight: 300;}
+.lgfoot-chip span { display: block; font-weight: 500; opacity: .85; }
+
+/* ---- main grid ---- */
+.lgfoot-grid {
+  display: grid;
+  grid-template-columns: 1.15fr .8fr .9fr .9fr;
+  gap: clamp(18px, 3vw, 36px);
+  padding: clamp(28px, 4vw, 60px) 0 clamp(18px, 3vw, 38px);
+}
+
+.lgfoot-col { min-width: 0; }
+
+.lgfoot-title {
+  margin: 0 0 .9rem;
+  font-weight: 900;
+  color: #d9f5e6;
+  letter-spacing: .2px;
+}
+
+/* brand + contact */
+.lgfoot-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.lgfoot-brand img {
+  width: 78px; height: 78px; object-fit: contain;
+  background: #fff; border-radius: 999px;
+  padding: 6px; box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+.lgfoot-brand p { grid-column: 1 / -1; opacity: .92; }
+
+.lgfoot-contact { list-style: none; padding: 0; margin: .6rem 0 0; display: grid; gap: .75rem; }
+.lgfoot-contact li { display: grid; grid-template-columns: auto 1fr; gap: .7rem; }
+.lgfoot-contactIcon {
+  width: 40px; height: 40px; display: grid; place-items: center;
+  border-radius: 12px; background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.10);
+}
+.lgfoot-contactLabel { margin: 0; font-weight: 700; opacity: .85; }
+.lgfoot-contact a, .lgfoot-contact address { color: #fff; opacity: .95; text-decoration: none; }
+
+.lgfoot-links, .lgfoot-highlights {
+  list-style: none; padding: 0; margin: 0; display: grid; gap: .6rem;
+}
+.lgfoot-links a { color: #eaf5ef; opacity: .94; text-decoration: none; }
+.lgfoot-links a:hover { text-decoration: underline; }
+
+.lgfoot-highlights li { display: grid; grid-template-columns: auto 1fr; gap: .6rem; }
+.lgfoot-highlights span {
+  width: 34px; height: 34px; display: grid; place-items: center;
+  border-radius: 10px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1);
+}
+.lgfoot-highlights p { margin: 0; opacity: .95; }
+
+/* ---- bottom bar ---- */
+.lgfoot-bottom { background: rgba(0,0,0,.2); border-top: 1px solid rgba(255,255,255,.06); }
+.lgfoot-bottomInner {
+  display: grid; align-items: center;
+  grid-template-columns: 1fr auto auto;
+  gap: 1rem;
+  padding: 14px 0;
+}
+.lgfoot-copy { margin: 0; opacity: .9; }
+
+.lgfoot-legal { list-style: none; padding: 0; margin: 0; display: flex; gap: 14px; }
+.lgfoot-legal a { color: #eaf5ef; opacity: .9; text-decoration: none; }
+.lgfoot-legal a:hover { text-decoration: underline; }
+
+.lgfoot-social { list-style: none; padding: 0; margin: 0; display: flex; gap: 10px; }
+.lgfoot-social a {
+  width: 36px; height: 36px; display: grid; place-items: center;
+  color: #1a2b22; background: var(--accent-500); border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--accent-500) 88%, #000 0%);
+}
+.lgfoot-social a:hover { filter: brightness(1.05); transform: translateY(-1px); }
+
+/* ---- responsive ---- */
+@media (max-width: 1100px) {
+  .lgfoot-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 720px) {
+  .lgfoot-strip { grid-template-columns: 1fr 1fr; }
+  .lgfoot-grid { grid-template-columns: 1fr; }
+  .lgfoot-bottomInner { grid-template-columns: 1fr; text-align: center; gap: 10px; }
+  .lgfoot-legal, .lgfoot-social { justify-content: center; }
+}
