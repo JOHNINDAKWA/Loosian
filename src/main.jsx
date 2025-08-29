@@ -68,7 +68,7 @@ const router = createBrowserRouter([
             kicker="Sustainability"
             title="Growing responsibly"
             subtitle="Coming soon"
-            blurb="Water conservation, soil health, and IPM at the core — renewable energy in progress."
+            blurb="Water conservation, soil health, and IPM at the core  renewable energy in progress."
           />
         ),
       },
@@ -92,7 +92,7 @@ const router = createBrowserRouter([
             kicker="Contact"
             title="Let’s talk"
             subtitle="Page in progress"
-            blurb="Call +254 723 851 228 or email oloosuyianfarm@gmail.com — we’ll get back fast."
+            blurb="Call +254 723 851 228 or email oloosuyianfarm@gmail.com,  we’ll get back fast."
             primaryTo="/"
             primaryLabel="Back to Home"
             secondaryTo="/about"

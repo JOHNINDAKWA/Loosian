@@ -19,7 +19,7 @@ export default function StaticPage({
 
         <div className="fullpage-kicker">{kicker}</div>
         <h1 className="fullpage-title">
-          {title} <span className="fullpage-subtle">— {subtitle}</span>
+          {title} <span className="fullpage-subtle"> ⦿ {subtitle}</span>
         </h1>
 
         <p className="fullpage-blurb">{blurb}</p>
