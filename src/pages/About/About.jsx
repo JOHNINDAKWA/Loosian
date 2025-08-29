@@ -13,7 +13,7 @@ import {
 import { FaRecycle } from "react-icons/fa";
 
 import HeroBg from "../../assets/images/track.jpg";      // leafy background
-import Farmer from "../../assets/images/image.jpg";                 // farmer holding crate
+import Farmer from "../../assets/images/farmers.jpg";                 // farmer holding crate
 import Cert from "../../assets/images/imgi_8_certification.png";       // 100% natural badge
 
 export default function About() {
