@@ -17,11 +17,14 @@ export default function Home() {
       <AboutSection />
       <GrowSection/>
       <QualityAssurance/>
-      <Testimonials/>
       <SustainabilityShowcase/>
+      
       <CTA/>
-
+      
       <ReachSection/>
+
+      <Testimonials/>
+
 
 
 

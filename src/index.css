@@ -24,21 +24,19 @@
   --radius: 16px;
   --shadow: 0 6px 24px rgba(0,0,0,.08);
 
-  /* gradients (light) – optional use */
+  /* gradients (light) */
   --bg-gradient: linear-gradient(180deg, #ffffff 0%, #f6faf8 100%);
   --surface-gradient: linear-gradient(180deg, rgba(20,106,75,.03), rgba(20,106,75,.00));
 }
 
-/* ===== Dark theme (lighter + lively gradient) ===== */
 :root[data-theme="dark"] {
-  /* neutrals (dark) – lighter & greener */
-  --bg: #121a16;            /* green-charcoal, lighter than before */
-  --surface: #17261f;       /* card / surfaces */
+  --bg: #131c17;
+  --surface: #17261f;
   --text: #eaf7f0;
   --muted: #b8c9c2;
   --border: #2a4238;
 
-  /* keep brand hues but nudge brighter for dark */
+  /* brand (unchanged) */
   --brand-900: #d6efe4;
   --brand-800: #b4ead2;
   --brand-700: #86dbb6;
@@ -47,15 +45,14 @@
   --brand-300: #9be7a4;
   --accent-500: #e9c465;
 
-  /* new: background gradients for dark */
-  --bg-gradient:
-    radial-gradient(1200px 600px at 15% -10%, rgba(39, 96, 72, .42), transparent 40%),
-    radial-gradient(900px 520px at 100% 0%, rgba(23, 77, 57, .42), transparent 38%),
-    linear-gradient(180deg, #121a16 0%, #0f1814 100%);
-  --surface-gradient: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+--bg-gradient:
+  radial-gradient(1000px 500px at 15% 10%, rgba(99, 202, 160, 0.28), transparent 55%),
+  radial-gradient(800px 480px at 85% 15%, rgba(139, 233, 187, 0.20), transparent 60%),
+  linear-gradient(180deg, #192a23 0%, #14241d 40%, #111a15 100%);
+
+
+  --surface-gradient: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
 }
-
-
 /* reset + base */
 * { box-sizing: border-box; }
 html, body, #root { height: 100%; }
@@ -65,14 +62,12 @@ body {
 
   color: var(--text);
   line-height: 1.6;
-}
 
-/* default (light) */
-body { background: var(--bg-gradient, var(--bg)); color: var(--text); }
-
-/* dark: swap to gradient */
-:root[data-theme="dark"] body {
-  background: var(--bg-gradient);
+  /* ✅ always use gradient if defined, else fallback to solid */
+  background: var(--bg-gradient, var(--bg));
+    background-attachment: fixed;   /* locks the gradient to the viewport */
+  background-repeat: no-repeat;   /* prevents tiling */
+  background-size: cover;         /* ensures it fills the whole area */
 }
 
 /* optional: make cards/shells feel less flat in dark */

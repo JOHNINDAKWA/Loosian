@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-import { FiMenu, FiX, FiExternalLink, FiPhone, FiSearch } from "react-icons/fi";
+import { FiMenu, FiX, FiExternalLink, FiPhone } from "react-icons/fi";
 import ThemeToggle from "../ThemeToggle/ThemeToggle.jsx";
 import logo from "../../assets/logo.png";
 import "./Header.css";
@@ -13,16 +13,18 @@ export default function Header() {
   const [hidden, setHidden] = useState(false);
   const [revealing, setRevealing] = useState(false);
 
-  // scroll bookkeeping (== your earlier logic)
+  // scroll bookkeeping
   const lastY = useRef(typeof window !== "undefined" ? window.scrollY : 0);
-  const lastDir = useRef("down");         // "up" | "down"
-  const upDistance = useRef(0);           // how far we've traveled up since direction changed
+  const lastDir = useRef("down"); // "up" | "down"
+  const upDistance = useRef(0);
   const revealTimeoutRef = useRef(null);
 
   // lock body when drawer open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [menuOpen]);
 
   useEffect(() => {
@@ -31,34 +33,28 @@ export default function Header() {
       const goingDown = y > lastY.current;
       const dir = goingDown ? "down" : "up";
 
-      // sticky when we’ve scrolled a bit
       setStuck(y > 80);
 
-      // When direction flips to UP: immediately push header up (hide),
-      // then after we’ve gone up a bit more, gracefully reveal from top.
       if (dir !== lastDir.current) {
         lastDir.current = dir;
         upDistance.current = 0;
 
         if (dir === "up") {
-          if (!hidden) setHidden(true); // step 1: disappear upwards right away
+          if (!hidden) setHidden(true);
           if (revealTimeoutRef.current) clearTimeout(revealTimeoutRef.current);
         }
       } else {
         if (dir === "up") {
-          // accumulate upward distance since change
           upDistance.current += lastY.current - y; // positive while going up
-          const REVEAL_AFTER_PX = 64;              // tweak if you want faster/slower reveal
+          const REVEAL_AFTER_PX = 64;
 
           if (hidden && upDistance.current > REVEAL_AFTER_PX) {
-            // step 2: reveal gracefully from the top and stick
             setHidden(false);
             setRevealing(true);
             if (revealTimeoutRef.current) clearTimeout(revealTimeoutRef.current);
             revealTimeoutRef.current = setTimeout(() => setRevealing(false), 520);
           }
         } else {
-          // going down: normal behavior — hide when moving down enough
           if (y > 140 && !hidden) setHidden(true);
         }
       }
@@ -95,9 +91,7 @@ export default function Header() {
         ].join(" ")}
       >
         <div className="container header-shell">
-          {/* Brand:
-             - .brand is a fixed-size dock that defines header height
-             - .logo-badge is absolutely centered vertically and protrudes above & below */}
+          {/* Brand (top header pill) */}
           <Link className="brand" to="/" aria-label="Loosian Grocers home">
             <span className="brand-dock" aria-hidden="true" />
             <span className="logo-badge">
@@ -107,24 +101,29 @@ export default function Header() {
 
           <nav className="nav">
             {navItems.map(([to, label]) => (
-              <NavLink key={to} to={to} end className={({ isActive }) => (isActive ? "active" : "")}>
+              <NavLink
+                key={to}
+                to={to}
+                end
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
                 {label}
               </NavLink>
             ))}
           </nav>
 
           <div className="right">
-            {/* <button className="icon-btn" aria-label="Search">
-              <FiSearch />
-            </button> */}
-
             <Link to="/contact" className="cta">
               <FiPhone />
               <span>Let’s Talk</span>
               <FiExternalLink className="arrow" />
             </Link>
 
-            <button className="icon-btn hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}>
+            <button
+              className="icon-btn hamburger"
+              aria-label="Open menu"
+              onClick={() => setMenuOpen(true)}
+            >
               <FiMenu />
             </button>
 
@@ -134,26 +133,33 @@ export default function Header() {
       </header>
 
       {/* Drawer */}
-      <div className={`drawer ${menuOpen ? "open" : ""}`} role="dialog" aria-modal="true">
+      <div
+        className={`drawer ${menuOpen ? "open" : ""}`}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Mobile menu"
+      >
         <div className="drawer-header">
           <Link className="brand" to="/" onClick={closeMenu}>
+            {/* hide the dock in drawer; keep markup for consistency */}
             <span className="brand-dock sm" aria-hidden="true" />
-            <span className="logo-badge sm static">
+            {/* BIG SQUARE LOGO IN DRAWER */}
+            <span className="logo-badge square">
               <img src={logo} alt="Loosian Grocers" />
             </span>
-            <span>Loosian Grocers</span>
+            {/* <span className="brand-title">Loosian <br /> Grocers</span> */}
           </Link>
-          <button className="icon-btn close" aria-label="Close menu" onClick={closeMenu}>
+          <button
+            className="icon-btn close"
+            aria-label="Close menu"
+            onClick={closeMenu}
+          >
             <FiX />
           </button>
         </div>
 
-        <div className="drawer-search">
-          {/* <input placeholder="Search here..." aria-label="Search" />
-          <button className="search-btn" aria-label="Search">
-            <FiSearch />
-          </button> */}
-        </div>
+        {/* (optional) space for search if you add it later */}
+        <div className="drawer-search" />
 
         <ul className="drawer-nav">
           {navItems.map(([to, label]) => (
@@ -165,6 +171,7 @@ export default function Header() {
           ))}
         </ul>
 
+        {/* CLEAN PILL CTA (no giant card) */}
         <Link to="/contact" className="drawer-cta" onClick={closeMenu}>
           <FiPhone />
           <span>Let’s Talk</span>

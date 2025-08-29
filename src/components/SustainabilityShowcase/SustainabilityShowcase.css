@@ -8,29 +8,7 @@
   isolation: isolate;
   padding: clamp(48px, 8vw, 96px) 0;
   /* soft brand gradient with corner blooms */
-  background:
-    radial-gradient(900px 520px at -10% 0%,
-      color-mix(in srgb, var(--brand-300) 22%, transparent) 0%, transparent 60%),
-    radial-gradient(900px 520px at 110% 100%,
-      color-mix(in srgb, var(--brand-700) 14%, transparent) 0%, transparent 64%),
-    linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--surface) 96%, var(--brand-300) 4%) 0%,
-      color-mix(in srgb, var(--surface) 90%, var(--brand-300) 10%) 100%
-    );
-}
 
-:root[data-theme="dark"] .lgsus {
-  background:
-    radial-gradient(900px 520px at -10% 0%,
-      color-mix(in srgb, var(--brand-600) 18%, transparent) 0%, transparent 60%),
-    radial-gradient(900px 520px at 110% 100%,
-      color-mix(in srgb, var(--brand-700) 18%, transparent) 0%, transparent 64%),
-    linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--bg) 92%,  var(--brand-700) 8%) 0%,
-      color-mix(in srgb, var(--surface) 84%, var(--brand-700) 16%) 100%
-    );
 }
 
 .lgsus__grid {

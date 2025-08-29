@@ -2,30 +2,7 @@
 .lgcta-wrap {
   position: relative;
   padding: clamp(40px, 6vw, 78px) 0; /* slightly taller band */
-  background:
-    radial-gradient(820px 420px at 8% -12%,
-      color-mix(in srgb, var(--brand-300) 22%, transparent) 0%, transparent 60%),
-    radial-gradient(980px 520px at 102% 110%,
-      color-mix(in srgb, var(--brand-700) 12%, transparent) 0%, transparent 62%),
-    linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--surface) 94%, var(--brand-300) 6%) 0%,
-      color-mix(in srgb, var(--surface) 88%, var(--brand-300) 12%) 100%
-    );
 }
-:root[data-theme="dark"] .lgcta-wrap {
-  background:
-    radial-gradient(820px 460px at 8% -10%,
-      color-mix(in srgb, var(--brand-600) 18%, transparent) 0%, transparent 60%),
-    radial-gradient(1000px 560px at 102% 110%,
-      color-mix(in srgb, var(--brand-700) 18%, transparent) 0%, transparent 64%),
-    linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--bg) 90%,  var(--brand-700) 10%) 0%,
-      color-mix(in srgb, var(--surface) 84%, var(--brand-700) 16%) 100%
-    );
-}
-
 /* ===== CTA card ===== */
 .lgcta-card {
   position: relative;
