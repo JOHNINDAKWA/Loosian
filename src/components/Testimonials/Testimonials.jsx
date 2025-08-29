@@ -64,7 +64,7 @@ export default function Testimonials() {
           slidesPerView={1}
           speed={650}
           loop
-          autoplay={{ delay: 50500, disableOnInteraction: false }}
+          autoplay={{ delay: 10000, disableOnInteraction: false }}
           navigation={{
             prevEl: ".lgtst-prev",
             nextEl: ".lgtst-next",

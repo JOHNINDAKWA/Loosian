@@ -119,14 +119,22 @@
 .about__features li{ display:flex; align-items:center; gap:.5rem; color: color-mix(in srgb, var(--text) 92%, #000 8%); }
 .about__features svg{ color:var(--brand-700); flex:0 0 auto; }
 
-.about__stats{ display:grid; grid-template-columns:repeat(2, minmax(0, 220px)); gap:14px; margin:.2rem 0 1.1rem; }
+.about__stats{ display:grid; grid-template-columns:repeat(2, minmax(0, 280px)); gap:14px; margin:.2rem 0 1.1rem; }
 .stat{ display:flex; align-items:center; gap:.8rem; }
-.stat .ring{
-  width:78px; height:78px; border-radius:999px; display:grid; place-items:center;
-  border:3px dashed color-mix(in srgb, var(--brand-700) 70%, var(--brand-300) 30%);
-  background:#fff;
+.stat .ring {
+  width: 78px;
+  height: 78px;
+  border-radius: 50% !important;   /* <-- always works for circles */
+  display: grid;
+  place-items: center;
+  border: 3px dashed color-mix(in srgb, var(--brand-700) 70%, var(--brand-300) 30%);
+  background: #fff;
 }
-.stat .ring span{ font-weight:900; color:var(--brand-700); }
+.stat .ring span {
+  font-weight: 900;
+  color: var(--brand-700);
+}
+
 .stat p{ margin:0; color: color-mix(in srgb, var(--text) 92%, #000 8%); }
 
 .about__cta{ display:flex; align-items:center; gap:.9rem; flex-wrap:wrap; }
@@ -149,7 +157,7 @@
 @media (max-width: 600px){
   .about{ border-radius:16px; }
   .about__features{ grid-template-columns:1fr; }
-  .about__stats{ grid-template-columns:1fr 1fr; }
+  .about__stats{ grid-template-columns:1fr; }
   .circle-inset{ left:4%; top:-3%; width:32vw; }
   .circle-bg{ width:78vw; }
   .farmer-fg{ width:76vw; }
