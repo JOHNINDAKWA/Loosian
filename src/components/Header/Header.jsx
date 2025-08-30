@@ -119,6 +119,8 @@ export default function Header() {
               <FiExternalLink className="arrow" />
             </Link>
 
+            <ThemeToggle />
+
             <button
               className="icon-btn hamburger"
               aria-label="Open menu"
@@ -127,7 +129,7 @@ export default function Header() {
               <FiMenu />
             </button>
 
-            <ThemeToggle />
+            
           </div>
         </div>
       </header>
