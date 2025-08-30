@@ -35,7 +35,7 @@ export default function AboutSection() {
           data-aos-duration="1000"
         >
           {/* big circular background */}
-          <div className="circle-bg" data-aos="fade-up" data-aos-delay="100">
+          <div className="circle-bg" >
             <img src={CircleBG} alt="" />
           </div>
 
@@ -44,8 +44,6 @@ export default function AboutSection() {
             src={Farmer}
             alt="Loosian farmer with fresh produce"
             className="farmer-fg"
-            data-aos="zoom-in-up"
-            data-aos-delay="200"
           />
 
           {/* inset small circle */}

@@ -126,7 +126,7 @@
   .lgfoot-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 720px) {
-  .lgfoot-strip { grid-template-columns: 1fr 1fr; }
+  .lgfoot-strip { display: none; }
   .lgfoot-grid { grid-template-columns: 1fr; }
   .lgfoot-bottomInner { grid-template-columns: 1fr; text-align: center; gap: 10px; }
   .lgfoot-legal, .lgfoot-social { justify-content: center; }
