@@ -6,6 +6,7 @@ import "aos/dist/aos.css";
 
 import Header from "./components/Header/Header.jsx";
 import Footer from "./components/Footer/Footer.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 function App() {
   const location = useLocation();
@@ -33,6 +34,7 @@ function App() {
   
   return (
     <div className="app">
+       <ScrollToTop />
       <Header />
       <main>
         <Outlet />
